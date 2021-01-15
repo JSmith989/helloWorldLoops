@@ -51,16 +51,28 @@ namespace HelloWorld
             // Display the result.  
             Console.WriteLine($"Would you like a {favColor} {animals[index]}");
 
-
+            Console.WriteLine("type a few letters");
             var letterLoop = Console.ReadLine();
-
-            foreach(var letter in letterLoop)
+            string output = string.Empty;
+            var count = 1;
+            foreach (char letter in letterLoop)
             {
-                for (int i = 0; i < letterLoop.Length; i++)
+                for (int i = 0; i < count; i++)
                 {
-                   
+                    if (i == 0)
+                    {
+                        output += char.ToUpper(letter);
+                    }
+                    else
+                    {
+                        output += letter;
+                    }
                 }
+                output += "-";
+                count++;
             }
+            string trimmed = output.TrimEnd('-');
+            Console.WriteLine($"Here is the new output {trimmed}");
 
         }
     }
